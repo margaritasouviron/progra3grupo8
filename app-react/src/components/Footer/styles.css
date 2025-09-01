@@ -1,0 +1,31 @@
+footer {
+    width: 100%;
+    background-color: #fff8f0;
+    color: #2c1810;
+    padding: 2% 2%;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #e8d5c4;
+}
+
+.nombres-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+.nombres-footer h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #5d4037;
+}
+
+.nombres-footer h3:hover {
+    color: #f7931e;
+}

@@ -1,3 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff8f0;
+    color: #2c1810;
+    font-family: sans-serif;
+}
+
+html {
+    background-color: #fff8f0;
+}
+
+#root {
+    background-color: #fff8f0;
+    min-height: 100vh;
+}
+
 nav {
     display: grid;
     grid-template-columns: 1fr;
