@@ -31,6 +31,12 @@ function Header() {
                         <a href={elemento.path}>{elemento.nombre}</a>
                     </li>)}
                 </ul>
+                <div className="buscador">
+                    <form action={'/resultados-busqueda/:?busqueda'} method="GET" >
+                        <input type="text" name="busqueda" placeholder="Buscar..." required></input>
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
             </nav>
         </header>
     );

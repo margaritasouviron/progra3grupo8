@@ -17,7 +17,11 @@ header {
     padding: 1.5% 2%;
     border-radius: 5px;
     border: 1px solid #e8d5c4;
+    display: flex;
+    justify-content: space-between;
 }
+
+
 
 .nav-links {
     list-style: none;
@@ -37,4 +41,25 @@ header {
 
 .nav-links li a:hover {
     color: #f7931e;
+}
+
+.buscador form{
+    width: 275px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buscador form input{
+    border-color: #f7931e;
+    border-radius: 5px;
+}
+
+
+.buscador form button{
+    background-color: #f49c38;
+    width: 75px;
+    height: 30px;
+    border-radius: 4.5px;
+    border: 0px;
+    color: #ffffff;
 }
