@@ -1,0 +1,66 @@
+.grid-videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-video {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #e8d5c4;
+  border-radius: 8px;
+}
+
+.poster-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.titulo-videos {
+  text-align: center;
+  color: #6b3f2a;
+  font-family: sans-serif;
+  margin: 16px 0;
+}
+
+.acciones-videos {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 24px;
+}
+
+.boton-cargar {
+  background-color: #6b3f2a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.nombre-video {
+  font-family: sans-serif;
+  font-size: 0.95rem;
+  color: #2c1810;
+  padding: 10px 12px 14px;
+}
+
+.buscador-videos {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.buscador-videos input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 250px;
+}
+
