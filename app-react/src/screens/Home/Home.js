@@ -4,7 +4,12 @@ import './styles.css';
 
 function Home(){
     return (
-        <p>home</p>
+        <div className="buscador">
+                    <form action={'/resultados-busqueda/:?busqueda'} method="GET" >
+                        <input type="text" name="busqueda" placeholder="Buscar..." required></input>
+                        <button type="submit">Buscar</button>
+                    </form>
+        </div>
     )
 }
 
