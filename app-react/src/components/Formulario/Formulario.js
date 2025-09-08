@@ -26,7 +26,7 @@ class Formulario extends Component{
     render(){
         return(
             <div className="buscador">
-                    <form onSubmit={(event)=> this.prevenirRecarga(event)} action={'/resultados-busqueda/:?busqueda'} method="GET" >
+                    <form onSubmit={(event)=> this.prevenirRecarga(event)} >
                         <input 
                         type="text" 
                         name="busqueda" 
