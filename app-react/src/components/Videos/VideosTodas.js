@@ -16,6 +16,17 @@ class VideosTodas extends Component {
 
   componentDidMount(){ this.cargarPagina(1); }
 
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.busqueda !== this.state.busqueda) {
+      const filtrados = this.state.copiaDatos.filter(item => {
+        const titulo = (item.title || item.name).toLowerCase();
+        const busquedaLower = this.state.busqueda.toLowerCase();
+        return titulo.includes(busquedaLower);
+      });
+      this.setState({ datos: filtrados });
+    }
+  }
+
   endpoint(page){
     const tipo = this.props.tipo === 'series' ? '/tv/popular' : '/movie/popular';
     return API_BASE + tipo + '?language=es-ES&page=' + page;
@@ -35,18 +46,10 @@ class VideosTodas extends Component {
       .catch(error=> console.log(error));
   }
 
-  cargarMas = () => { this.cargarPagina(this.state.nextPage); }
+  botonCargarMas = () => { this.cargarPagina(this.state.nextPage); }
 
   controlarCambios = (event) => {
-    const busqueda = event.target.value;
-    this.setState({ busqueda: busqueda });
-    
-    const filtrados = this.state.copiaDatos.filter(item => {
-      const titulo = (item.title || item.name).toLowerCase();
-      const busquedaLower = busqueda.toLowerCase();
-      return titulo.includes(busquedaLower);
-    });
-    this.setState({ datos: filtrados });
+    this.setState({ busqueda: event.target.value });
   }
 
   render(){
@@ -73,7 +76,7 @@ class VideosTodas extends Component {
           ))}
         </ul>
         <div className="acciones-videos">
-          <button className="boton-cargar" onClick={this.cargarMas}>cargar más</button>
+          <button className="boton-cargar" onClick={this.botonCargarMas}>cargar más</button>
         </div>
       </>
     );
