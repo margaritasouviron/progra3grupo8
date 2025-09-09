@@ -67,14 +67,17 @@ class VideosTodas extends Component {
           </form>
         </div>
         <h2 className="titulo-videos">{titulo}</h2>
-        <ul className="grid-videos">
-          {this.state.datos.map((item, idx) => (
-            <li className="item-video" key={item.id + idx}>
-              <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
-              <div className="nombre-video">{item.title || item.name}</div>
-            </li>
-          ))}
-        </ul>
+        {this.state.datos.length === 0 ? 
+          <h3>Cargando...</h3> : 
+          <ul className="grid-videos">
+            {this.state.datos.map((item, idx) => (
+              <li className="item-video" key={item.id + idx}>
+                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
+                <div className="nombre-video">{item.title || item.name}</div>
+              </li>
+            ))}
+          </ul>
+        }
         <div className="acciones-videos">
           <button className="boton-cargar" onClick={this.botonCargarMas}>cargar más</button>
         </div>
