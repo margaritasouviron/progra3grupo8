@@ -51,6 +51,10 @@ class VideosTodas extends Component {
 
   botonCargarMas = () => { this.cargarPagina(this.state.nextPage); }
 
+  evitarSubmit = (event) => {
+    event.preventDefault();
+  }
+
   controlarCambios = (event) => {
     this.setState({ busqueda: event.target.value });
   }
@@ -60,13 +64,9 @@ class VideosTodas extends Component {
     return (
       <>
         <div className="buscador-videos">
-          <form>
+          <form onSubmit={(event) => this.evitarSubmit(event)}>
             <input 
-              type="text" 
-              placeholder="Buscar películas o series..." 
-              value={this.state.busqueda}
-              onChange={this.controlarCambios}
-            />
+              type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda} placeholder="Buscar películas o series..." />
           </form>
         </div>
         <h2 className="titulo-videos">{titulo}</h2>
