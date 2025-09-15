@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 const API_BASE = 'https://api.themoviedb.org/3';
@@ -77,6 +78,7 @@ class VideosTodas extends Component {
               <li className="item-video" key={item.id + idx}>
                 <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
                 <div className="nombre-video">{item.title || item.name}</div>
+                <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
               </li>
             ))}
           </ul>
