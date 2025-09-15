@@ -17,11 +17,11 @@ function App() {
     <Header />
     <Switch>
       <Route  path='/' exact={true} component={Home}/>
-      <Route  path='/favoritas' exact={true} component={Favoritas}/>
-      <Route  path='/detalle/id/:id' exact={true} component={Detalle}/>
-      <Route  path='/peliculas' exact={true} component={Peliculas}/>
-      <Route  path='/series' exact={true} component={Series}/>
-      <Route  path='/ResultadosBusqueda/:?busqueda' exact={true} component={ResultadosBusqueda}/>
+      <Route  path='/favoritas' component={Favoritas}/>
+      <Route  path='/detalle/id/:id' component={Detalle}/>
+      <Route  path='/peliculas' component={Peliculas}/>
+      <Route  path='/series' component={Series}/>
+      <Route  path='/resultados/:busqueda' component={ResultadosBusqueda}/>
       <Route  path='' component={NotFound}/>
     </Switch>
     <Footer />
