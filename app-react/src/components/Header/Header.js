@@ -5,8 +5,8 @@ import "./styles.css"
 function Header() {
     const elementos = [
         { nombre: "Home", path: "/" },
-        { nombre: "Películas más populares", path: "/peliculas?categoria=populares" },
-        { nombre: "Películas en cartel", path: "/peliculas?categoria=cartel" },
+        { nombre: "Películas", path: "/peliculas" },
+        { nombre: "Series", path: "/series" },
         { nombre: "Favoritas", path: "/favoritas" }
     ]
 

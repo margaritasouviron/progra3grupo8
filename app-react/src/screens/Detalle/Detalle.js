@@ -27,7 +27,7 @@ class Detalle extends Component {
   componentDidMount() {
     const { id } = this.props.match.params; 
 
-    fetch(`${API_BASE}/movie/${id}?language=es-ES`)
+    fetch(`${API_BASE}/movie/${id}?language=es-ES`, options)
         .then(res => res.json())
         .then(data => {
             this.setState({datos: data, cargando: false})
