@@ -1,12 +1,11 @@
 footer {
     width: 100%;
-    background-color: #fff8f0;
-    color: #2c1810;
+    background-color: #003971;                   
     padding: 2% 2%;
     margin: 0;
     bottom: 0;
     left: 0;
-    border-top: 1px solid #e8d5c4;
+    border-top: 1px solid #2c2c2c;  
 }
 
 .nombres-footer {
@@ -23,9 +22,9 @@ footer {
     font-weight: bolder;
     margin: 0;
     font-size: 1rem;
-    color: #5d4037;
+    color: #ffffff;              
 }
 
 .nombres-footer h3:hover {
-    color: #f7931e;
+    color: #1e90ff;                  
 }

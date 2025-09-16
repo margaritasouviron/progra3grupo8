@@ -85,7 +85,7 @@ class VideosTodas extends Component {
         }
         {this.state.nextPage && (
           <div className="acciones-videos">
-            <button className="boton-cargar" onClick={this.botonCargarMas}>cargar más</button>
+            <button className="boton-cargar" onClick={this.botonCargarMas}>Cargar más</button>
           </div>
         )}
       </>

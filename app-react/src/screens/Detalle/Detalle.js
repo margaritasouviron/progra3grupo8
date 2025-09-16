@@ -24,27 +24,28 @@ class Detalle extends Component {
     };
   }
 
-  componentDidMount() {
-    const { id } = this.props.match.params; 
+    componentDidMount() {
+        const { id } = this.props.match.params; 
 
-    fetch(`${API_BASE}/movie/${id}?language=es-ES`, options)
-        .then(res => res.json())
-        .then(data => {
-            this.setState({datos: data, cargando: false})
-        })
-        .catch(error=> console.log(error));
-  }
+        fetch(`${API_BASE}/movie/${id}?language=es-ES`, options)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({datos: data, cargando: false})
+            })
+            .catch(error=> console.log(error));
+    }
 
-  render() {
-    const { datos, cargando } = this.state;
+    render() {
+        const { datos, cargando } = this.state;
+        return (
+            <React.Fragment>
+                <div className="detalle-contenedor">
+                    {cargando ? <h2>Cargando...</h2> : <DetalleCard datos={datos} imgBase={IMG_BASE} />}
+                </div>
+            </React.Fragment>
+        );
+    };
 
-    return (
-      <div className="detalle-contenedor">
-        {cargando && <h2>Cargando...</h2>}
-        {datos && <DetalleCard datos={datos} imgBase={IMG_BASE} />}
-      </div>
-    );
-  }
 }
 
 export default Detalle;

@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Home from './screens/Home/Home';
 import Detalle from './screens/Detalle/Detalle';
 import Favoritas from './screens/Favoritas/Favoritas';
-import ResultadosBusqueda from './screens/ResultadosBusqueda/ResultadosBusqueda';
+import ResultadosBusqueda from './screens/Resultados/Resultados';
 import Peliculas from './screens/Peliculas/Peliculas';
 import Series from './screens/Series/Series';
 import NotFound from './screens/NotFound/NotFound';

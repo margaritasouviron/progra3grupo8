@@ -30,7 +30,7 @@ class Formulario extends Component{
                         <input 
                         type="text" 
                         name="busqueda" 
-                        placeholder="Buscar..." 
+                        placeholder="Buscar películas/series..." 
                         required 
                         value={this.state.busqueda} 
                         onChange={(event)=>this.controlarCambios(event)}>
