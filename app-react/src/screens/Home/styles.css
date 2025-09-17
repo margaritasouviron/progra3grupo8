@@ -5,7 +5,7 @@
 }
 
 .buscador form {
-    width: 400px;
+    width: 600px;
     display: flex;
     align-items: center;
     background-color: #003971;     
@@ -29,8 +29,13 @@
     outline: none;
 }
 
-.buscador form input::placeholder {
-    color: #aaaaaa;               
+.buscador form select {
+    padding: 8px 12px;
+    border: 1px solid #1e90ff;
+    border-radius: 5px;
+    background: #000928;
+    color: #ffffff;
+    margin-left: 10px;
 }
 
 .buscador form button {

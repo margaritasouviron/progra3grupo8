@@ -28,6 +28,41 @@
   display: block;
 }
 
+.buscador-videos {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.buscador-videos form {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  background-color: #003971;     
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.buscador-videos form:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+}
+
+.buscador-videos form input {
+  flex: 1;
+  border: 1px solid #1e90ff;    
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #000928;
+  outline: none;
+}
+
+.buscador-videos form input::placeholder {
+  color: #aaaaaa;               
+}
+
 .titulo-videos {
   text-align: left;
   color: #003971;                
@@ -69,6 +104,20 @@
 .boton-cargar:hover {
   background-color: #0d6efd;     
   box-shadow: 0 4px 12px rgba(30,144,255,0.4);
+}
+
+.link-detalle {
+  display: block;
+  background-color: #1e90ff;
+  color: #ffffff;
+  padding: 8px 16px;
+  margin: 8px 12px 12px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.link-detalle:hover {
+  background-color: #0d6efd;
 }
 
 

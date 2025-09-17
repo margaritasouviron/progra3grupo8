@@ -16,6 +16,7 @@ header {
     font-weight: bold;
     color: #ffffff;                
     margin: 0;
+ 
 }
 
 .nav-bar {
@@ -27,6 +28,7 @@ header {
     align-items: center;
     gap: 20px;
     margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .nav-links {

@@ -18,10 +18,10 @@ function App() {
     <Switch>
       <Route  path='/' exact={true} component={Home}/>
       <Route  path='/favoritas' component={Favoritas}/>
-      <Route  path='/detalle/id/:id' component={Detalle}/>
+      <Route  path='/detalle/:id' component={Detalle}/>
       <Route  path='/peliculas' component={Peliculas}/>
       <Route  path='/series' component={Series}/>
-      <Route  path='/resultados/:busqueda' component={ResultadosBusqueda}/>
+      <Route  path='/resultados-busqueda/:tipo/:query' component={ResultadosBusqueda}/>
       <Route  path='' component={NotFound}/>
     </Switch>
     <Footer />

@@ -18,7 +18,7 @@ class Home extends Component {
   render(){
     return (
       <div className="body">
-        <Formulario onChange={this.actualizarBusqueda} />
+        <Formulario history={this.props.history} />
         <Videos tipo="peliculas" query={this.state.query} />
         <Videos tipo="series" query={this.state.query} />
       </div>
