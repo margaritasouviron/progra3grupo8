@@ -1,8 +1,12 @@
 .tituloResultados {
-  color: #ffffff;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin: 30px 0;
-  font-size: 2rem;
+  color: #003971;                
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  
 }
 
 .grid-videos {
@@ -31,6 +35,13 @@
 
 .nombre-video {
   padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.favoritos-video {
+  padding: 10px;
   color: #ffffff;
   text-align: center;
   font-weight: bold;

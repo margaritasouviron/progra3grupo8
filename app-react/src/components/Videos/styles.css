@@ -74,11 +74,18 @@
 
 .nombre-video {
   font-family: 'Segoe UI', sans-serif;
-  font-size: 0.95rem;
   color: #cccccc;              
   padding: 0 12px 12px;
   text-align: left;
 }
+
+.favoritos-video {
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
 
 .acciones-videos {
   display: flex;
