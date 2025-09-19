@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
+import BoxVideo from './BoxVideo';
 
 const API_BASE = 'https://api.themoviedb.org/3';
 const API_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTNhYmEwODRhYmY2ODcwZWI5YzE1NDkxMjM1MjZlYiIsIm5iZiI6MTc1NzM0MjI1Ny4xNjIsInN1YiI6IjY4YmVlYTMxNWM3NzQ4MzBiMjFmNTViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Zd8wb7Lae7vk0cn6zw4rcHRIESSfMIn2tWDcyG2CE_E';
@@ -8,15 +9,16 @@ const options = {
     method: 'GET',
     headers: { 
         accept: 'application/json',
-        Authorization: 'Bearer ' + API_TOKEN } };
+        Authorization: 'Bearer ' + API_TOKEN } 
+  };
         
-const IMG_BASE_W342 = 'https://image.tmdb.org/t/p/w342';
 
 class Videos extends Component {
   constructor(props){
     super(props);
     this.state = { 
-        datos: [] 
+        datos: [], 
+        expandirInfo: null
     };
   }
 
@@ -37,6 +39,12 @@ class Videos extends Component {
       .catch(error=> console.log(error));
   }
 
+  mostrarDescripcion(id){
+    this.setState(({
+      expandirInfo: this.state.expandirInfo === id? null: id
+    }))
+  }
+
   render(){
     return (
       <>
@@ -44,12 +52,8 @@ class Videos extends Component {
         {this.state.datos.length === 0 ? 
           <h3>Cargando...</h3> : 
           <ul className="grid-videos">
-            {this.state.datos.map((item, idx) => (
-              <li className="item-video" key={item.id + idx}>
-                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
-                <div className="nombre-video">{item.title || item.name}</div>
-              </li>
-            ))}
+            {this.state.datos.map((item, idx) => (<BoxVideo item={item} key={idx} expandirInfo={this.state.expandirInfo} mostrarDescripcion={(id)=>(this.mostrarDescripcion(id))}/>) 
+            )}
           </ul>
         }
         <div className="acciones-videos">

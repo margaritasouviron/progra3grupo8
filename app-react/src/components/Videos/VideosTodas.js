@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './styles.css'
+import BoxVideo from './BoxVideo';
 
 const API_BASE = 'https://api.themoviedb.org/3';
-const IMG_BASE_W342 = 'https://image.tmdb.org/t/p/w342';
 
 class VideosTodas extends Component {
   constructor(props){
@@ -10,7 +10,8 @@ class VideosTodas extends Component {
     this.state = { 
       datos: [], 
       copiaDatos: [],
-      busqueda: ""
+      busqueda: "",
+      expandirInfo: null
     };
   }
 
@@ -52,6 +53,12 @@ class VideosTodas extends Component {
     this.setState({ busqueda: event.target.value });
   }
 
+  mostrarDescripcion(id){
+    this.setState(({
+      expandirInfo: this.state.expandirInfo === id? null: id
+    }))
+  }
+
   render(){
     const titulo = this.props.tipo === 'series' ? 'Series' : 'Películas';
     return (
@@ -70,12 +77,7 @@ class VideosTodas extends Component {
         {this.state.datos.length === 0 ? 
           <h3>Cargando...</h3> : 
           <ul className="grid-videos">
-            {this.state.datos.map((item, idx) => (
-              <li className="item-video" key={item.id + idx}>
-                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
-                <div className="nombre-video">{item.title || item.name}</div>
-              </li>
-            ))}
+            {this.state.datos.map((item, idx) => (<BoxVideo item={item} key={idx} expandirInfo={this.state.expandirInfo} mostrarDescripcion={(id)=>(this.mostrarDescripcion(id))}/>) )}
           </ul>
         }
         <div className="acciones-videos">

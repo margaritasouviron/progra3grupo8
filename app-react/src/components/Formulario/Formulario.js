@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { withRouter } from "react-router-dom";
 
 class Formulario extends Component{
     constructor(props){
@@ -10,7 +11,7 @@ class Formulario extends Component{
 
     prevenirRecarga(event){
         event.preventDefault()
-        this.props.push('/search-results/busqueda/?'+this.state.busqueda)
+        this.props.history.push('/resultados-busqueda/busqueda/'+this.state.busqueda)
     }
 
     controlarCambios (event){
@@ -20,13 +21,10 @@ class Formulario extends Component{
         );
     }
 
-
-
-
     render(){
         return(
             <div className="buscador">
-                    <form onSubmit={(event)=> this.prevenirRecarga(event)} >
+                    <form onSubmit={(event)=> this.prevenirRecarga(event)}>
                         <input 
                         type="text" 
                         name="busqueda" 
@@ -43,4 +41,4 @@ class Formulario extends Component{
     }
 }
 
-export default Formulario;
+export default withRouter(Formulario);
