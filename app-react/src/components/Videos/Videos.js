@@ -26,13 +26,7 @@ class Videos extends Component {
     fetch(url, options)
       .then(res => res.json())
       .then(data => {
-        const primeros4 = [];
-        data.results.map((item, idx) => {
-          if (idx < 7) {
-            primeros4.push(item);
-          }
-        });
-        this.setState({ datos: primeros4 });
+        this.setState({ datos: data.results });
       })
       .catch(error=> console.log(error));
   }
@@ -46,7 +40,7 @@ class Videos extends Component {
           <ul className="grid-videos">
             {this.state.datos.map((item, idx) => (
               <li className="item-video" key={item.id + idx}>
-                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
+                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path}/>
                 <div className="nombre-video">{item.title || item.name}</div>
                 <div className="favoritos-video">Agregar a favoritos</div>
                 <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
