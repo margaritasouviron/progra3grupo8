@@ -78,6 +78,7 @@ class VideosTodas extends Component {
               <li className="item-video" key={item.id + idx}>
                 <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
                 <div className="nombre-video">{item.title || item.name}</div>
+                <div className="favoritos-video">Agregar a favoritos</div>
                 <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
               </li>
             ))}

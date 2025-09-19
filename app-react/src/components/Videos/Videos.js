@@ -28,7 +28,7 @@ class Videos extends Component {
       .then(data => {
         const primeros4 = [];
         data.results.map((item, idx) => {
-          if (idx < 5) {
+          if (idx < 7) {
             primeros4.push(item);
           }
         });

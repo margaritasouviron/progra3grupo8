@@ -41,8 +41,12 @@
 }
 
 .favoritos-video {
-  padding: 10px;
+  display: block;
+  background-color: #ff6b6b;
   color: #ffffff;
+  padding: 10px;
+  margin: 8px 12px;
   text-align: center;
   font-weight: bold;
+  border-radius: 5px;
 }
