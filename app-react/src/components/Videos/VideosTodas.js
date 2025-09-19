@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './styles.css'
 import BoxVideo from './BoxVideo';
 
 const API_BASE = 'https://api.themoviedb.org/3';
+const API_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTNhYmEwODRhYmY2ODcwZWI5YzE1NDkxMjM1MjZlYiIsIm5iZiI6MTc1NzM0MjI1Ny4xNjIsInN1YiI6IjY4YmVlYTMxNWM3NzQ4MzBiMjFmNTViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Zd8wb7Lae7vk0cn6zw4rcHRIESSfMIn2tWDcyG2CE_E';
+const options = { method: 'GET', headers: { accept: 'application/json', Authorization: 'Bearer ' + API_TOKEN } };
+const IMG_BASE_W342 = 'https://image.tmdb.org/t/p/w342';
 
 class VideosTodas extends Component {
   constructor(props){
@@ -10,8 +14,7 @@ class VideosTodas extends Component {
     this.state = { 
       datos: [], 
       copiaDatos: [],
-      busqueda: "",
-      expandirInfo: null
+      busqueda: ""
     };
   }
 
@@ -34,7 +37,7 @@ class VideosTodas extends Component {
   }
 
   cargarPagina(page){
-    fetch(this.endpoint(page))
+    fetch(this.endpoint(page), options)
       .then(res => res.json())
       .then(data => {
         const concatenados = [...this.state.datos, ...data.results];
@@ -48,6 +51,10 @@ class VideosTodas extends Component {
   }
 
   botonCargarMas = () => { this.cargarPagina(this.state.nextPage); }
+
+  evitarSubmit = (event) => {
+    event.preventDefault();
+  }
 
   controlarCambios = (event) => {
     this.setState({ busqueda: event.target.value });
@@ -64,25 +71,28 @@ class VideosTodas extends Component {
     return (
       <>
         <div className="buscador-videos">
-          <form>
+          <form onSubmit={(event) => this.evitarSubmit(event)}>
             <input 
-              type="text" 
-              placeholder="Buscar películas o series..." 
-              value={this.state.busqueda}
-              onChange={this.controlarCambios}
-            />
+              type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda} placeholder="Buscar películas o series..." />
           </form>
         </div>
         <h2 className="titulo-videos">{titulo}</h2>
         {this.state.datos.length === 0 ? 
           <h3>Cargando...</h3> : 
           <ul className="grid-videos">
-            {this.state.datos.map((item, idx) => (<BoxVideo item={item} key={idx} expandirInfo={this.state.expandirInfo} mostrarDescripcion={(id)=>(this.mostrarDescripcion(id))}/>) )}
+            {this.state.datos.map((item, idx) => (
+              <li className="item-video" key={item.id + idx}>
+                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
+                <div className="nombre-video">{item.title || item.name}</div>
+              </li>
+            ))}
           </ul>
         }
-        <div className="acciones-videos">
-          <button className="boton-cargar" onClick={this.botonCargarMas}>cargar más</button>
-        </div>
+        {this.state.nextPage && (
+          <div className="acciones-videos">
+            <button className="boton-cargar" onClick={this.botonCargarMas}>Cargar más</button>
+          </div>
+        )}
       </>
     );
   }

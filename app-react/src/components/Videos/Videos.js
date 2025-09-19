@@ -30,7 +30,7 @@ class Videos extends Component {
       .then(data => {
         const primeros4 = [];
         data.results.map((item, idx) => {
-          if (idx < 4) {
+          if (idx < 5) {
             primeros4.push(item);
           }
         });
@@ -52,8 +52,14 @@ class Videos extends Component {
         {this.state.datos.length === 0 ? 
           <h3>Cargando...</h3> : 
           <ul className="grid-videos">
-            {this.state.datos.map((item, idx) => (<BoxVideo item={item} key={idx} expandirInfo={this.state.expandirInfo} mostrarDescripcion={(id)=>(this.mostrarDescripcion(id))}/>) 
-            )}
+            {this.state.datos.map((item, idx) => (
+              <li className="item-video" key={item.id + idx}>
+                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
+                <div className="nombre-video">{item.title || item.name}</div>
+                <div className="favoritos-video">Agregar a favoritos</div>
+                <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
+              </li>
+            ))}
           </ul>
         }
         <div className="acciones-videos">

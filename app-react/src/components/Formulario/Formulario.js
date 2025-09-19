@@ -5,21 +5,30 @@ class Formulario extends Component{
     constructor(props){
         super(props)
         this.state ={
-            busqueda: ''
+            busqueda: '',
+            tipo: 'peliculas' // Valor por defecto
         };
     }
 
     prevenirRecarga(event){
         event.preventDefault()
-        this.props.history.push('/resultados-busqueda/busqueda/'+this.state.busqueda)
+        this.props.history.push(`/resultados-busqueda/${this.state.tipo}/${this.state.busqueda}`)
     }
 
-    controlarCambios (event){
+    controlarCambios = (event) => {
         this.setState({
             busqueda: event.target.value
-        } 
-        );
+        });
     }
+
+    controlarTipo = (event) => {
+        this.setState({
+            tipo: event.target.value
+        });
+    }
+
+
+
 
     render(){
         return(
@@ -28,13 +37,19 @@ class Formulario extends Component{
                         <input 
                         type="text" 
                         name="busqueda" 
-                        placeholder="Buscar..." 
+                        placeholder="Buscar películas o series..." 
                         required 
                         value={this.state.busqueda} 
-                        onChange={(event)=>this.controlarCambios(event)}>
-
-                        </input>
-                        <button type="submit">Buscar</button>
+                        onChange={(event)=>this.controlarCambios(event)} />
+                    
+                    <select 
+                        value={this.state.tipo} 
+                        onChange={(event)=>this.controlarTipo(event)}>
+                        <option value="peliculas">Películas</option>
+                        <option value="series">Series</option>
+                    </select>
+                    
+                    <button type="submit">Buscar</button>
                     </form>
         </div>
         )
