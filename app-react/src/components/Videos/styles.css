@@ -11,13 +11,12 @@
 .item-video {
   flex: 0 1 275px;
   display: block;
-  background: #000928;          
+  background: #00092b !important;          
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 .item-video:hover {
-  transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.8);
 }
 
@@ -81,12 +80,11 @@
 
 .favoritos-video {
   display: block;
-  background-color: #ff6b6b;
+  background-color: #850000 !important;
   color: #ffffff;
   padding: 10px;
   margin: 8px 12px;
   text-align: center;
-  font-weight: bold;
   border-radius: 5px;
 }
 
@@ -119,7 +117,7 @@
 
 .link-detalle {
   display: block;
-  background-color: #1e90ff;
+  background-color: #00478f;
   color: #ffffff;
   padding: 8px 16px;
   margin: 8px 12px 12px;
