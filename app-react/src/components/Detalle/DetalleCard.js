@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./styles.css"
 
 class DetalleCard extends Component {
   render() {
@@ -10,7 +11,7 @@ class DetalleCard extends Component {
         <img className="detalle-imagen" src={imgBase + datos.poster_path} alt={datos.title} />
         <div className='detalle-info'>
           <p><strong>Calificación:</strong> {datos.vote_average}</p>
-          <p><strong>Fecha de estreno:</strong> {datos.release_date}</p>
+          <p><strong>Fecha de estreno:</strong> {datos.release_date || datos.first_air_date}</p>
           {tipo === 'peliculas' && datos.runtime && (
             <p><strong>Duración:</strong> {datos.runtime} min</p>
           )}
