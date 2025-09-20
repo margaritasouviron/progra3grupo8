@@ -18,15 +18,8 @@ class DetalleCard extends Component {
           <p><strong>Sinopsis:</strong> {datos.overview}</p>
           <p>
             <strong>Géneros: </strong>
-            {datos.genres && datos.genres.length > 0 ? (
-              datos.genres.map((genero, idx) => (
-                <span key={idx}>
-                  {genero.name}{idx < datos.genres.length - 1 ? ', ' : ''}
-                </span>
-              ))
-            ) : (
-              'Sin información'
-            )}
+            {datos.genres && datos.genres.length > 0 ? ( datos.genres.map((genero, idx) => idx < datos.genres.length - 1 
+                    ? genero.name + ', ' : genero.name)) : 'Sin información'}
           </p>
         </div>
       </div>

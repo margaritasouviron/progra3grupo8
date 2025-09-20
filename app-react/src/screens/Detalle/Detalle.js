@@ -28,7 +28,7 @@ class Detalle extends Component {
 
     const endpoint = (tipo === 'peliculas') ? `/movie/${id}` : `/tv/${id}`;
 
-    fetch(`${API_BASE}${endpoint}`, options)
+    fetch(`${API_BASE}${endpoint}?language=es-ES&page=1`, options)
       .then(response => response.json())
       .then(data => {
         this.setState({
