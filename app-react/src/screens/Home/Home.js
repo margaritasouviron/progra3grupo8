@@ -4,23 +4,12 @@ import Videos from '../../components/Videos/Videos'
 import './styles.css';
 
 class Home extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      query: ''
-    };
-  }
-
-  actualizarBusqueda = (valor) => {
-    this.setState({ query: valor });
-  }
-
   render(){
     return (
       <div className="body">
         <Formulario history={this.props.history} />
-        <Videos tipo="peliculas" query={this.state.query} />
-        <Videos tipo="series" query={this.state.query} />
+        <Videos tipo="peliculas"/>
+        <Videos tipo="series"/>
       </div>
     );
   }
