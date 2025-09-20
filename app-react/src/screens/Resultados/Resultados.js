@@ -44,7 +44,7 @@ class ResultadosBusqueda extends Component {
           <ul className="grid-videos">
             {this.state.datos.map((item, idx) => (
               <li className="item-video" key={item.id + idx}>
-                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt={item.title || item.name} />
+                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path}/>
                 <div className="nombre-video">{item.title || item.name}</div>
                 <div className="favoritos-video">Agregar a favoritos</div>
                 <Link className="link-detalle" to={`/detalle/${item.id}`}>Ir al detalle</Link>
