@@ -19,7 +19,7 @@ class Detalle extends Component {
     this.state = {
       datos: null,
       cargando: true,
-      error: null
+      error: null,
     };
   }
 
@@ -42,7 +42,11 @@ class Detalle extends Component {
           cargando: false
         });
       });
+
+    
   }
+
+  
 
   render() {
     const { datos, cargando, error } = this.state;
@@ -58,6 +62,7 @@ class Detalle extends Component {
     return (
       <div className="detalle-contenedor">
         <DetalleCard datos={datos} imgBase={IMG_BASE_W342} tipo={this.props.match.params.tipo} />
+        
       </div>
     );
   }

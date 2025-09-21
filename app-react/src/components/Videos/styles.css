@@ -10,10 +10,11 @@
 
 .item-video {
   flex: 0 1 275px;
-  display: block;
   background: #00092b !important;          
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  align-items: space-between;
+  justify-content: space-between;
 }
 
 .item-video:hover {
@@ -131,8 +132,12 @@
   border: 0px;
   margin-left: 15px;
   font-size: small;
-  width: 100%;
+  width: 87%;
   text-align: left;
+}
+
+.descrip:hover{
+  color: #b7b7b7;
 }
 
 .descrip-texto{

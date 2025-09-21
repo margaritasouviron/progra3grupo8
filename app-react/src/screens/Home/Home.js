@@ -9,8 +9,8 @@ class Home extends Component {
     return (
       <div className="body">
         <Formulario history={this.props.history} />
-        <Videos tipo="peliculas" query={this.state.query} limite={limite}/>
-        <Videos tipo="series" query={this.state.query} limite={limite}/>
+        <Videos tipo="peliculas"  limite={limite}/>
+        <Videos tipo="series"  limite={limite}/>
       </div>
     );
   }
