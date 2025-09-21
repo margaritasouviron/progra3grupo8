@@ -118,7 +118,7 @@ class VideosTodas extends Component {
               </button>
               
               
-              <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
+              <Link className="link-detalle" to={`/detalle/${item.title ? 'peliculas' : 'series'}/${item.id}`}>Ir al detalle</Link>
               
             </li>
             ))}
