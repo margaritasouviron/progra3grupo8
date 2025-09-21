@@ -16,11 +16,12 @@ class Home extends Component {
   }
 
   render(){
+    let limite = 6
     return (
       <div className="body">
         <Formulario history={this.props.history} />
-        <Videos tipo="peliculas" query={this.state.query} />
-        <Videos tipo="series" query={this.state.query} />
+        <Videos tipo="peliculas" query={this.state.query} limite={limite}/>
+        <Videos tipo="series" query={this.state.query} limite={limite}/>
       </div>
     );
   }

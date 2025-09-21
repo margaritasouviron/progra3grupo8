@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
-import BoxVideo from './BoxVideo';
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
 
 const API_BASE = 'https://api.themoviedb.org/3';
 const API_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTNhYmEwODRhYmY2ODcwZWI5YzE1NDkxMjM1MjZlYiIsIm5iZiI6MTc1NzM0MjI1Ny4xNjIsInN1YiI6IjY4YmVlYTMxNWM3NzQ4MzBiMjFmNTViNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Zd8wb7Lae7vk0cn6zw4rcHRIESSfMIn2tWDcyG2CE_E';
@@ -14,7 +15,8 @@ class VideosTodas extends Component {
     this.state = { 
       datos: [], 
       copiaDatos: [],
-      busqueda: ""
+      busqueda: "",
+      favoritos: JSON.parse(localStorage.getItem('favoritos')) || []
     };
   }
 
@@ -66,6 +68,21 @@ class VideosTodas extends Component {
     }))
   }
 
+  modificarFavoritos(item){
+    let favoritos = this.state.favoritos
+    let existe = favoritos.find(fav => fav.id === item.id)
+    let nuevosFavoritos = existe? favoritos.filter(fav=> fav.id !== item.id) : [...favoritos, item]
+    this.setState({favoritos: nuevosFavoritos})
+    localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos))
+    console.log(nuevosFavoritos)
+  }
+
+  estaEnFavoritos(item){
+    let favoritos = this.state.favoritos
+    let existe = favoritos.find(fav => fav.id === item.id)
+    return existe
+  }
+
   render(){
     const titulo = this.props.tipo === 'series' ? 'Series' : 'Películas';
     return (
@@ -76,6 +93,7 @@ class VideosTodas extends Component {
               type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda} placeholder="Buscar películas o series..." />
           </form>
         </div>
+
         <h2 className="titulo-videos">{titulo}</h2>
         {this.state.datos.length === 0 ? 
           <h3>Cargando...</h3> 
@@ -83,11 +101,26 @@ class VideosTodas extends Component {
           <ul className="grid-videos">
             {this.state.datos.map((item, idx) => (
               <li className="item-video" key={item.id + idx}>
-                <img className="poster-video" src={IMG_BASE_W342 + item.poster_path}/>
-                <div className="nombre-video">{item.title || item.name}</div>
-                <div className="favoritos-video">Agregar a favoritos</div>
-                <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
-              </li>
+              <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt=''/>
+              <div className="nombre-video">{item.title || item.name}</div>
+              <button className='descrip' onClick={()=> this.mostrarDescripcion(item.id)}>
+              {this.state.expandirInfo === item.id ? 'Ocultar Descripción' : 'Mostrar Descripción'}
+              </button>
+              {this.state.expandirInfo === item.id ? 
+              <p className='descrip-texto'>
+              {item.overview}
+              </p>
+              : null}
+              
+              <button className='favoritos-video'  onClick={()=> this.modificarFavoritos(item)}>
+                  {this.estaEnFavoritos(item) ? <React.Fragment><AiFillHeart className='icono-corazon rojo'/> <p className='texto-favs'>Quitar de Favoritos</p></React.Fragment> : <React.Fragment><AiOutlineHeart className='icono-corazon'/> <p className='texto-favs'>Agregar a Favoritos</p></React.Fragment>}
+
+              </button>
+              
+              
+              <Link className="link-detalle" to={`/detalle/id/${item.id}`}>Ir al detalle</Link>
+              
+            </li>
             ))}
           </ul>
         }
