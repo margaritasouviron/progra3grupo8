@@ -88,7 +88,7 @@ class VideosTodas extends Component {
     return (
       <>
         <div className="buscador-videos">
-          <form onSubmit={(event) => this.evitarSubmit(event)}>
+          <form onSubmit={(event) => this.evitarSubmit(event)}> 
             <input 
               type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda} placeholder="Buscar..." />
           </form>
