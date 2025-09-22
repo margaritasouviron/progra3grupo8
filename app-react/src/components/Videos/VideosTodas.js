@@ -86,7 +86,7 @@ class VideosTodas extends Component {
   render(){
     const titulo = this.props.tipo === 'series' ? 'Series' : 'Películas';
     return (
-      <>
+      <React.Fragment>
         <div className="buscador-videos">
           <form onSubmit={(event) => this.evitarSubmit(event)}>
             <input 
@@ -96,8 +96,7 @@ class VideosTodas extends Component {
 
         <h2 className="titulo-videos">{titulo}</h2>
         {this.state.datos.length === 0 ? 
-          <h3>Cargando...</h3> 
-          : 
+          <h3 className='sin-resultados'>Esto está tardando mucho o no hay resultados</h3> :
           <ul className="grid-videos">
             {this.state.datos.map((item, idx) => (
               <li className="item-video" key={item.id + idx}>
@@ -122,7 +121,7 @@ class VideosTodas extends Component {
             <button className="boton-cargar" onClick={this.botonCargarMas}>Cargar más</button>
           </div>
         )}
-      </>
+      </React.Fragment>
     );
   }
 }

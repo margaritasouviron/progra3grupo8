@@ -70,7 +70,7 @@ class Videos extends Component {
 
   render(){
     return (
-      <>
+      <React.Fragment>
         <h2 className="titulo-videos">{this.props.tipo === 'series' ? 'Series' : 'Películas'}</h2>
         {this.state.datos.length === 0 ? 
           <h3>Cargando...</h3> : 
@@ -102,7 +102,7 @@ class Videos extends Component {
         </div>
         }
         
-      </>
+      </React.Fragment>
     );
   }
 }
