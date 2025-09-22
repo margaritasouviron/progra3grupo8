@@ -9,7 +9,49 @@ const IMG_BASE_W342 = 'https://image.tmdb.org/t/p/w342';
 
 
 class Favoritas extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            peliculasFav: [],
+            seriesFav: [],
+            expandirInfo: null,
+        };
+    }
 
+    componentDidMount() {
+
+        let peliculasFav = JSON.parse(localStorage.getItem('peliculasFav')) || []
+        let seriesFav = JSON.parse(localStorage.getItem('seriesFav')) || []
+        this.setState({ peliculasFav: peliculasFav, seriesFav: seriesFav })
+    }
+
+    mostrarDescripcion(id) {
+        this.setState(({
+            expandirInfo: this.state.expandirInfo === id ? null : id
+        }))
+    }
+
+    modificarFavoritos(item) {
+        let favoritos = item.title ? this.state.peliculasFav : this.state.seriesFav
+        let existe = favoritos.find(fav => fav.id === item.id)
+        let nuevosFavoritos = existe ? favoritos.filter(fav => fav.id !== item.id) : [...favoritos, item]
+
+        if (item.title) {
+            this.setState({ peliculasFav: nuevosFavoritos })
+            localStorage.setItem('peliculasFav', JSON.stringify(nuevosFavoritos))
+        } else {
+            this.setState({ seriesFav: nuevosFavoritos })
+            localStorage.setItem('seriesFav', JSON.stringify(nuevosFavoritos))
+        }
+        
+        console.log(nuevosFavoritos)
+    }
+
+    estaEnFavoritos(item) {
+        let favoritos = item.title ? this.state.peliculasFav : this.state.seriesFav
+        let existe = favoritos.find(fav => fav.id === item.id)
+        return existe
+    }
     
     render() {
         return (
