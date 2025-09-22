@@ -16,7 +16,8 @@ class VideosTodas extends Component {
       datos: [], 
       copiaDatos: [],
       busqueda: "",
-      favoritos: JSON.parse(localStorage.getItem('favoritos')) || []
+      peliculasFav: JSON.parse(localStorage.getItem('peliculasFav')) || [],
+      seriesFav: JSON.parse(localStorage.getItem('seriesFav')) || [],
     };
   }
 
@@ -69,16 +70,23 @@ class VideosTodas extends Component {
   }
 
   modificarFavoritos(item){
-    let favoritos = this.state.favoritos
+    let favoritos = item.title ? this.state.peliculasFav : this.state.seriesFav
     let existe = favoritos.find(fav => fav.id === item.id)
     let nuevosFavoritos = existe? favoritos.filter(fav=> fav.id !== item.id) : [...favoritos, item]
-    this.setState({favoritos: nuevosFavoritos})
-    localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos))
+    
+    if (item.title) {
+      this.setState({ peliculasFav: nuevosFavoritos })
+      localStorage.setItem('peliculasFav', JSON.stringify(nuevosFavoritos))
+    } else {
+      this.setState({ seriesFav: nuevosFavoritos })
+      localStorage.setItem('seriesFav', JSON.stringify(nuevosFavoritos))
+    }
+    
     console.log(nuevosFavoritos)
   }
 
   estaEnFavoritos(item){
-    let favoritos = this.state.favoritos
+    let favoritos = item.title ? this.state.peliculasFav : this.state.seriesFav
     let existe = favoritos.find(fav => fav.id === item.id)
     return existe
   }

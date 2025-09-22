@@ -4,17 +4,30 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 class DetalleCard extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      esFavorito: this.estaEnFavoritos(props.datos),
+    }
+  }
+
   modificarFavoritos(item){
-    let favoritos = JSON.parse(localStorage.getItem('favoritos'))
+    let favoritos = JSON.parse(localStorage.getItem(item.title ? 'peliculasFav' : 'seriesFav'))
     let existe = favoritos.find(fav => fav.id === item.id)
-    let nuevosFavoritos = existe? favoritos.filter(fav=> fav.id !== item.id) : [...favoritos, item]
-    this.setState({favoritos: nuevosFavoritos})
-    localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos))
+    let nuevosFavoritos = existe ? favoritos.filter(fav=> fav.id !== item.id) : [...favoritos, item]
+    
+    if (item.title) {
+      localStorage.setItem('peliculasFav', JSON.stringify(nuevosFavoritos))
+      
+    } else {
+      localStorage.setItem('seriesFav', JSON.stringify(nuevosFavoritos))
+    }
+    this.setState({esFavorito: !this.state.esFavorito})
     console.log(nuevosFavoritos)
   }
 
   estaEnFavoritos(item){
-    let favoritos = JSON.parse(localStorage.getItem('favoritos'))
+    let favoritos = JSON.parse(localStorage.getItem(item.title ? "peliculasFav" : "seriesFav"))
     let existe = favoritos.find(fav => fav.id === item.id)
     return existe
   }
@@ -40,7 +53,7 @@ class DetalleCard extends Component {
           </p>
         </div>
         <button className='favoritos-video'  onClick={()=> this.modificarFavoritos(datos)}>
-                  {this.estaEnFavoritos(datos) ? <React.Fragment><AiFillHeart className='icono-corazon rojo'/> <p className='texto-favs'>Quitar de Favoritos</p></React.Fragment> : <React.Fragment><AiOutlineHeart className='icono-corazon'/> <p className='texto-favs'>Agregar a Favoritos</p></React.Fragment>}
+                  {this.state.esFavorito ? <React.Fragment><AiFillHeart className='icono-corazon rojo'/> <p className='texto-favs'>Quitar de Favoritos</p></React.Fragment> : <React.Fragment><AiOutlineHeart className='icono-corazon'/> <p className='texto-favs'>Agregar a Favoritos</p></React.Fragment>}
 
         </button>
       </div>

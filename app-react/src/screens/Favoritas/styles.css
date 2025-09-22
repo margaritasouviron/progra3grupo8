@@ -5,3 +5,216 @@
 .body{
     margin-top: 50px;
 }
+
+.grid-videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    justify-content: center;
+  }
+  
+  .item-video {
+    flex: 0 1 320px;
+    background: #000823 !important;          
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    align-items: space-between;
+    justify-content: space-between;
+    display: flex; 
+    flex-direction: column;
+    padding: 12px; 
+    box-sizing: border-box; 
+    min-height: auto; 
+  }
+  
+  .item-video:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+  }
+  
+  .poster-video {
+    flex: 0 0 330px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+     border-radius: 6px;
+  }
+  
+  .buscador-videos {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  
+  .buscador-videos form {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: #003971;     
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  
+  .buscador-videos form:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+  }
+  
+  .buscador-videos form input {
+    flex: 1;
+    border: 1px solid #1e90ff;    
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #000928;
+    outline: none;
+  }
+  
+  .buscador-videos form input::placeholder {
+    color: #aaaaaa;               
+  }
+  
+  .sin-resultados {
+    margin-left: 20px;
+    padding: 20px;
+  }
+  
+  .titulo-videos {
+    text-align: left;
+    color: #003971;                
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0 0 0 40px;
+  }
+  
+  .nombre-video {
+    font-family: 'Segoe UI', sans-serif;
+    color: #cccccc;              
+    padding: 0 12px 12px;
+    text-align: center;
+    flex: 0 0 auto; 
+    font-size: 17px;
+  }
+  
+  
+  .acciones-videos {
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 12px 16px;
+  }
+  
+  .boton-cargar {
+    display: block;
+    background-color: #1e90ff;    
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 30px auto 0;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .boton-cargar:hover {
+    background-color: #0d6efd;     
+    box-shadow: 0 4px 12px rgba(30,144,255,0.4);
+  }
+  
+  .link-detalle {
+    display: block;
+    background-color: #00478f;
+    color: #ffffff;
+    padding: 8px 16px;
+    margin: 8px 12px 12px;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box; 
+    margin-top: 8px;
+  }
+  
+  .link-detalle:hover {
+    background-color: #0d6efd;
+    transform: scale(1.04);
+  }
+  
+  
+  
+  .descrip{
+    background-color: #00000000;
+    text-transform: lowercase;
+    font-style: italic;
+    text-decoration: underline;
+    color: #ffffff;
+    border: 0px;
+    margin-left: 15px;
+    font-size: small;
+    width: 87%;
+    text-align: left;
+    flex: 0 0 auto;
+  }
+  
+  .descrip:hover{
+    color: #b7b7b7;
+  }
+  
+  .descrip-texto{
+    color: #ffffff;
+    margin: 5px;
+    font-size: smaller;
+    flex: 0 0 auto;
+  }
+  
+  .favoritos-video {
+    display: flex !important;
+    align-items: center !important; 
+    justify-content: center; 
+    gap: 8px;
+    background-color: #7f262a !important;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: auto;
+  }
+  
+  
+  .favoritos-video .texto-favs{
+    font-weight: 400;
+    margin: 0px;
+    font-size: smaller;
+    width: auto;
+    flex: 1;
+  }
+  
+  
+  .icono-corazon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border: 0px;
+    color: #fefefe;
+    height: 20px;
+  }
+  
+  .favoritos-video:hover {
+    transform: scale(1.04);
+  }
+  
+  .rojo {
+    color: #fefcfc;
+  }
+  
+  .links-fondo {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+  }
+  

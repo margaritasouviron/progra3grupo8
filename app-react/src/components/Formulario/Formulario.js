@@ -6,7 +6,7 @@ class Formulario extends Component{
         super(props)
         this.state ={
             busqueda: '',
-            tipo: 'peliculas' // Valor por defecto
+            tipo: 'peliculas'
         };
     }
 
