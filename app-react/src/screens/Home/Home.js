@@ -5,7 +5,7 @@ import './styles.css';
 
 class Home extends Component {
   render(){
-    let limite = 6
+    let limite = 8
     return (
       <div className="body">
         <Formulario history={this.props.history} />

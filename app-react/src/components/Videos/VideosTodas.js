@@ -90,7 +90,7 @@ class VideosTodas extends Component {
         <div className="buscador-videos">
           <form onSubmit={(event) => this.evitarSubmit(event)}>
             <input 
-              type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda} placeholder="Buscar películas o series..." />
+              type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda} placeholder="Buscar..." />
           </form>
         </div>
 
@@ -103,23 +103,16 @@ class VideosTodas extends Component {
               <li className="item-video" key={item.id + idx}>
               <img className="poster-video" src={IMG_BASE_W342 + item.poster_path} alt=''/>
               <div className="nombre-video">{item.title || item.name}</div>
-              <button className='descrip' onClick={()=> this.mostrarDescripcion(item.id)}>
-              {this.state.expandirInfo === item.id ? 'Ocultar Descripción' : 'Mostrar Descripción'}
-              </button>
-              {this.state.expandirInfo === item.id ? 
-              <p className='descrip-texto'>
-              {item.overview}
-              </p>
-              : null}
-              
-              <button className='favoritos-video'  onClick={()=> this.modificarFavoritos(item)}>
+              <div className='links-fondo'>
+                <button className='descrip' onClick={()=> this.mostrarDescripcion(item.id)}>
+                  {this.state.expandirInfo === item.id ? 'Ocultar Descripción' : 'Mostrar Descripción'}
+                </button>
+                {this.state.expandirInfo === item.id ? <p className='descrip-texto'>{item.overview}</p> : null}
+                <button className='favoritos-video'  onClick={()=> this.modificarFavoritos(item)}>
                   {this.estaEnFavoritos(item) ? <React.Fragment><AiFillHeart className='icono-corazon rojo'/> <p className='texto-favs'>Quitar de Favoritos</p></React.Fragment> : <React.Fragment><AiOutlineHeart className='icono-corazon'/> <p className='texto-favs'>Agregar a Favoritos</p></React.Fragment>}
-
-              </button>
-              
-              
-              <Link className="link-detalle" to={`/detalle/${item.title ? 'peliculas' : 'series'}/${item.id}`}>Ir al detalle</Link>
-              
+                </button>
+                <Link className="link-detalle" to={`/detalle/${item.title ? 'peliculas' : 'series'}/${item.id}`}>Ir al detalle</Link>
+              </div>
             </li>
             ))}
           </ul>
