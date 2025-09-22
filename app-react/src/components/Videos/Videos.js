@@ -19,7 +19,7 @@ class Videos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      datos: props.datos || [],
+      datos: [],
       expandirInfo: null,
       peliculasFav: JSON.parse(localStorage.getItem('peliculasFav')) || [],
       seriesFav: JSON.parse(localStorage.getItem('seriesFav')) || [],
