@@ -18,6 +18,7 @@ class VideosTodas extends Component {
       busqueda: "",
       peliculasFav: JSON.parse(localStorage.getItem('peliculasFav')) || [],
       seriesFav: JSON.parse(localStorage.getItem('seriesFav')) || [],
+      nextPage: 1,
     };
   }
 

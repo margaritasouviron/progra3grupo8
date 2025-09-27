@@ -30,7 +30,7 @@ class Videos extends Component {
   componentDidMount() {
     let datosLength = this.props.datos ? this.props.datos.length : 0
     if (datosLength !== 0) {
-      this.setState({ datos: this.props.datos })
+      this.setState({ datos: this.props.datos }) // esto es solo para favoritos
     } else {
       const tipo = this.props.tipo === 'series' ? '/tv/popular' : '/movie/popular';
       const url = API_BASE + tipo + '?language=es-ES&page=1';
@@ -45,9 +45,11 @@ class Videos extends Component {
 
 
   mostrarDescripcion(id) {
-    this.setState(({
+    this.setState(() =>
+    ({
       expandirInfo: this.state.expandirInfo === id ? null : id
-    }))
+    })
+    )
   }
 
   modificarFavoritos(item) {
