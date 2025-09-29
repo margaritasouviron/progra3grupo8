@@ -46,6 +46,14 @@ class Resultados extends Component {
       .catch(error=> console.log(error));
   }
 
+  mostrarDescripcion(id) {
+    this.setState(() =>
+    ({
+      expandirInfo: this.state.expandirInfo === id ? null : id
+    })
+    )
+  }
+
   render(){
     const { tipo, query } = this.props.match.params;
     const titulo = tipo === 'series' ? 'Series' : 'Películas';
