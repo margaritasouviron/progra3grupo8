@@ -26,9 +26,11 @@ class VideosTodas extends Component {
 
   componentDidUpdate(prevProps, prevState){
     if (prevState.busqueda !== this.state.busqueda) {
-      const filtrados = this.state.copiaDatos.filter(item => {
-        const titulo = (item.title || item.name).toLowerCase();
+      const filtrados = this.state.copiaDatos.filter(item => 
+        
+        {const titulo = (item.title || item.name).toLowerCase(); 
         const busquedaLower = this.state.busqueda.toLowerCase();
+
         return titulo.includes(busquedaLower);
       });
       this.setState({ datos: filtrados });
@@ -66,7 +68,7 @@ class VideosTodas extends Component {
 
   mostrarDescripcion(id){
     this.setState(({
-      expandirInfo: this.state.expandirInfo === id? null: id
+      expandirInfo: this.state.expandirInfo === id ? null: id
     }))
   }
 

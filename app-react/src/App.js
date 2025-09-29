@@ -10,6 +10,7 @@ import Series from './screens/Series/Series';
 import NotFound from './screens/NotFound/NotFound';
 
 import {Route, Switch} from "react-router-dom";
+import Resultados from './screens/Resultados/Resultados';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
       <Route  path="/detalle/:tipo/:id" component={Detalle}/>
       <Route  path='/peliculas' component={Peliculas}/>
       <Route  path='/series' component={Series}/>
-      <Route  path='/resultados-busqueda/:tipo/:query' component={ResultadosBusqueda}/>
+      <Route  path='/resultados-busqueda/:tipo/:query' component={Resultados}/>
       <Route  path='' component={NotFound}/>
     </Switch>
     <Footer />

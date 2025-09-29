@@ -8,7 +8,7 @@ const API_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTNhYmEwODRhYmY2ODcwZWI5YzE1
 const options = { method: 'GET', headers: { accept: 'application/json', Authorization: 'Bearer ' + API_TOKEN } };
 const IMG_BASE_W342 = 'https://image.tmdb.org/t/p/w342';
 
-class ResultadosBusqueda extends Component {
+class Resultados extends Component {
   constructor(props){
     super(props);
     this.state = { 
@@ -88,4 +88,4 @@ class ResultadosBusqueda extends Component {
   }
 }
 
-export default ResultadosBusqueda;
+export default Resultados;
